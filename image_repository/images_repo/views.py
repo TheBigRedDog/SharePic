@@ -20,10 +20,6 @@ def add_image(request):
     else:
         form = ImageForm()
     return render(request, 'images_repo/add_image.html', {'form' : form})
- 
-# TODO: IMPLEMENT ADDING MULTIPLE IMAGES AS ALBUM
-# def add_album(request):
-#     if request.method ==
 
 def all_images(request):
     image_list = Image.objects.all()
@@ -31,10 +27,22 @@ def all_images(request):
 
 # TODO: IMPLEMENT DELETING IMAGES
 def delete_image(request, image_id):
-    image = Image.objects.get(pk=image_id)
-    image.delete()
-    messages.success(request, (f'Image {image.title} has been deleted'))
-    return redirect('gallery')
+    if request.user.is_authenticated:
+        image = Image.objects.get(pk=image_id)
+        if request.user == image.owner:
+            image.delete()
+            messages.success(request, (f'Image {image.title} has been deleted'))
+        else:
+            messages.error(request, ('You can only delete your own images!'))
+        return redirect('gallery')
+    else:
+        messages.error(request, ('You must be logged in to delete images'))
+        return redirect('gallery')
+
+ 
+# TODO: IMPLEMENT ADDING MULTIPLE IMAGES AS ALBUM
+# def add_album(request):
+#     if request.method ==
 
 # TODO: IMPLEMENT DELETING ALBUMS
 
