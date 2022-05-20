@@ -1,26 +1,31 @@
 {% extends 'images_repo/base.html' %}
 
 {% block content %} 
+<Center><h1>Image Gallery</h1></Center>
 
-<h1>Images</h1>
     {% if image_list %}
-    <ul>
-    {% for image in image_list %}
     
-        <li>
-            <div class='card' style='width: 18rem;'>
-                <img src='{{ image.image.url }}' class='card-img-top' alt='...'>
-                <div class='card-body'>
-                  <h5 class='card-title'>{{ image.title }}</h5>
-                  <p class='card-text'>{{ image.description }}.</p>
-                  <a href='{% url "delete-image" image.id %}' class='btn btn-outline-secondary btn-sm'>Delete</a>
-                </div>
-              </div>
-            
-            
-        </li>
+
+    <div class="row row-cols1 row-cols-md-3 g-4">
+    {% for image in image_list %}
+      <div class="col">
+        <div class="card">
+          <img src="{{ image.image.url }}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title text-center">{{ image.title }}</h5>
+            {% if image.public == False %} 
+            <h6 class="card-subtitle mb-2 text-muted">Private</h6>
+            {% endif %}
+            <p class="card-text">{{ image.description }}</p>
+            <a href='{% url "delete-image" image.id %}' class="btn mr-2"><i class="fas fa-link"></i> Delete</a>
+      
+          </div>
+        </div>
+      </div>
+
     {% endfor %}
-    </ul>
+    </div>
+
     {% else %} 
     <h3>Upload some images!</h3>
     {% endif %}
