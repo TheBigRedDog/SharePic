@@ -3,6 +3,7 @@
 {% block content %} 
 
 <h1>Images</h1>
+    {% if image_list %}
     <ul>
     {% for image in image_list %}
     
@@ -12,13 +13,16 @@
                 <div class='card-body'>
                   <h5 class='card-title'>{{ image.title }}</h5>
                   <p class='card-text'>{{ image.description }}.</p>
+                  <a href='{% url "delete-image" image.id %}' class='btn btn-outline-secondary btn-sm'>Delete</a>
                 </div>
               </div>
             
-        <!-- {{ image.title }}
-        <img src='{{ image.image.url}}' alt='connect' style='max-height:300px'> -->
+            
         </li>
     {% endfor %}
     </ul>
+    {% else %} 
+    <h3>Upload some images!</h3>
+    {% endif %}
 
 {% endblock %}
