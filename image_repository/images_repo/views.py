@@ -26,6 +26,9 @@ def all_images(request):
     image_list = Image.objects.all()
     return render(request, 'images_repo/gallery.html', {'image_list': image_list})
 
+def delete_image(request):
+    pass
+
 
 # Create your views here.
 
