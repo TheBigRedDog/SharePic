@@ -8,7 +8,8 @@ class Image(models.Model):
     description=models.CharField('Image Description', blank=True, max_length=500)
     time_uploaded=models.DateTimeField('Upload Time', default=datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
     image=models.ImageField(upload_to='images/')
-    owner=models.ForeignKey(User, blank=True, null=True, on_delete=models.SET_NULL)
+    public=models.BooleanField('Public', default=False)
+    owner=models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
 
     
 
