@@ -14,7 +14,9 @@ def add_image(request):
 
         if form.is_valid():
             form.save()
-            return redirect('success')
+            image_object = form.instance
+            return render(request, 'images_repo/add_image.html', 
+                            {'form': form, 'image_object': image_object})
     else:
         form = ImageForm()
     return render(request, 'images_repo/add_image.html', {'form' : form})
