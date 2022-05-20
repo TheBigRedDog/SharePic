@@ -21,12 +21,11 @@ def add_image(request):
         form = ImageForm()
     return render(request, 'images_repo/add_image.html', {'form' : form})
 
-def success(request):
-    return HttpResponse('upload successful')
 
 def all_images(request):
-    images_list = Image.objects.all()
-    return render(request, 'images_repo/image_gallery.html', {'image_list': image_list})
+    image_list = Image.objects.all()
+    return render(request, 'images_repo/gallery.html', {'image_list': image_list})
+
 
 # Create your views here.
 
