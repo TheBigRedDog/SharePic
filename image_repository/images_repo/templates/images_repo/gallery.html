@@ -5,9 +5,18 @@
 <h1>Images</h1>
     <ul>
     {% for image in image_list %}
+    
         <li>
-        {{ image.title }}
-        <img src='{{ image.image.url}}' alt='connect' style='max-height:300px'>
+            <div class='card' style='width: 18rem;'>
+                <img src='{{ image.image.url }}' class='card-img-top' alt='...'>
+                <div class='card-body'>
+                  <h5 class='card-title'>{{ image.title }}</h5>
+                  <p class='card-text'>{{ image.description }}.</p>
+                </div>
+              </div>
+            
+        <!-- {{ image.title }}
+        <img src='{{ image.image.url}}' alt='connect' style='max-height:300px'> -->
         </li>
     {% endfor %}
     </ul>

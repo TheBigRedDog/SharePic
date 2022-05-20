@@ -20,14 +20,18 @@ def add_image(request):
     else:
         form = ImageForm()
     return render(request, 'images_repo/add_image.html', {'form' : form})
-
+ 
+# TODO: IMPLEMENT ADDING MULTIPLE IMAGES AS ALBUM
+# def add_album(request):
+#     if request.method ==
 
 def all_images(request):
     image_list = Image.objects.all()
     return render(request, 'images_repo/gallery.html', {'image_list': image_list})
 
-def delete_image(request):
-    pass
+# TODO: IMPLEMENT DELETING IMAGES
+
+# TODO: IMPLEMENT DELETING ALBUMS
 
 
 # Create your views here.
