@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'images_repo.apps.ImagesRepoConfig',
     'members.apps.MembersConfig',
-
+    'django_cleanup.apps.CleanupConfig',
 ]
 
 MIDDLEWARE = [

@@ -1,7 +1,14 @@
 {% extends 'images_repo/base.html' %}
 
 {% block content %}
-
-    <h1>Hello!</h1>
-
+    <CENTER>
+        <h1>Hello, welcome to the image sharing platform!</h1>
+    </CENTER>
+    {% if not user.is_authenticated %}
+    <CENTER>
+    </br>
+    </br>   
+        <h4>If you have not registered an account, please register to access all the platform has to offer!</h3>
+    </CENTER>
+    {% endif %}
 {% endblock %}
