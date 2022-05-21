@@ -41,9 +41,7 @@ def delete_image(request, image_id):
     if request.user.is_authenticated:
         image = Image.objects.get(pk=image_id)
         if request.user == image.owner:
-            image_url = image.url
             image.delete()
-            os.remove(f'{image.url}')
             messages.success(request, (f'Image {image.title} has been deleted'))
         else:
             messages.error(request, ('You can only delete your own images!'))
