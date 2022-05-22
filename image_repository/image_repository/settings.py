@@ -82,9 +82,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'image_repo_db',
-        'USER': 'image_repo_user',
-        'PASSWORD': 'password',
-        'HOST': '127.0.0.1',
+        'USER': 'image_repo',
+        'PASSWORD': 'image_repository1234',
+        'HOST': 'db',
         'PORT': '5432',
     }
 }

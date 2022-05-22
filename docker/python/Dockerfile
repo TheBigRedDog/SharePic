@@ -15,6 +15,6 @@ COPY ./image_repository /image_repository
 # install required packages
 RUN pip install -r requirements.txt
 
-RUN ["chmod", "+x", "/image_repository/docker-entrypoint.sh"]
+RUN chmod +x /image_repository/docker-entrypoint.sh
 
-ENTRYPOINT ["sh", "/image_repository/docker-entrypoint.sh" ]
+ENTRYPOINT [ "/image_repository/docker-entrypoint.sh" ]

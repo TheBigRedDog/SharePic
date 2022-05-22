@@ -1,0 +1,36 @@
+version: "3"
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: image_repo
+      POSTGRES_DB: image_repo_db
+      POSTGRES_PASSWORD: image_repository1234
+    ports:
+      - "5432"
+    volumes:
+      - pgdata:/var/lib/posgresql/data
+    networks:
+      - djangonetwork
+  image_repository:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./image_repository:/image_repository
+    command: python manage.py runserver 0.0.0.0:8000
+    depends_on:
+      - db
+    links:
+      - db:db
+    networks:
+      - djangonetwork
+
+networks:
+  djangonetwork:
+    driver: bridge
+volumes:
+  pgdata:
+
