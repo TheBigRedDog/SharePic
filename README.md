@@ -1,4 +1,4 @@
-# shopify-data-engineer-intern-challenge
+# SharePic
 If you do not have Docker and Docker Compose installed, please install them.
 https://docs.docker.com/engine/install/
 https://docs.docker.com/compose/install/
