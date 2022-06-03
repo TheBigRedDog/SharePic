@@ -1,5 +1,5 @@
 # SharePic
-If you do not have Docker and Docker Compose installed, please install them.
+To run this project you will need to have Docker and Docker Compose installed globally.
 https://docs.docker.com/engine/install/
 https://docs.docker.com/compose/install/
 
