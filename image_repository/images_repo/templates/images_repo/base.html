@@ -1,19 +1,22 @@
 <!doctype html>
-<html lang='en'>
+<html lang="en">
   <head>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta lang="en"/>
+    <meta charset="utf-8"/>
+    <meta keywords="HTML, CSS, Javascript, Django, Images, image sharing"/>
+    <meta description="An image sharing platform built with Django"/>
+    <meta name="viewport" content="width=device-width, initial-scale"/>
     <title>Image Repostiory</title>
-    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor' crossorigin='anonymous'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"/>
   </head>
-  <body style='margin:4; padding:4'>
+  <body style="margin:4; padding:4">
     {% include 'images_repo/navbar.html' %}
     <br/>
-    <div class='container'>
+    <div class="container">
       {% if messages %}
         {% for message in messages %}
         
-        <div class='alert alert-warning d-flex align-items-center' role='alert'>
+        <div class="alert alert-warning d-flex align-items-center" role="alert">
           {{message}}
         </div>
   
@@ -23,7 +26,7 @@
 
       {% endblock %}
     </div>
-    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js' integrity='sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2' crossorigin='anonymous'></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
   </body>
 </html>
 

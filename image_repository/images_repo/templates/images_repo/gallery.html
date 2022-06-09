@@ -10,7 +10,7 @@
     {% for image in image_list %}
       <div class="col">
         <div class="card">
-          <img src="{{ image.image.url }}" class="card-img-top" alt="...">
+          <img src="{{ image.image.url }}" class="card-img-top" alt="..."/>
           <div class="card-body">
             <h5 class="card-title text-center">{{ image.title }}</h5>
             {% if image.public == False %} 
