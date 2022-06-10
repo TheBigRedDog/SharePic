@@ -1,5 +1,6 @@
 {% extends 'images_repo/base.html' %}
-
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'images_repo/css/gallery.css' %}" />
 {% block content %} 
 <Center><h1>Image Gallery</h1></Center>
 
@@ -18,7 +19,6 @@
             {% endif %}
             <p class="card-text">{{ image.description }}</p>
             <a href='{% url "delete-image" image.id %}' class="btn mr-2"><i class="fas fa-link"></i> Delete</a>
-      
           </div>
         </div>
       </div>
