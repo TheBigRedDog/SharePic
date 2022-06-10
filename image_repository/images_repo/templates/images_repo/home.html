@@ -1,6 +1,7 @@
-{% extends 'images_repo/base.html' %} {% block content %}
-<!-- TODO: add in homescreen for users that are logged in...-->
+{% extends 'images_repo/base.html' %} 
 
+{% block content %}
+<!-- TODO: add in homescreen for users that are logged in...-->
 <header class="bg-dark py-5">
   <div class="container px-5">
     <div class="row gx-5 justify-content-center">
@@ -61,21 +62,6 @@
           <i class="bi bi-arrow-right"></i>
         </a>
       </div>
-      <!-- <div class="col-lg-4">
-        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
-          <i class="bi bi-toggles2"></i>
-        </div>
-        <h2 class="h4 fw-bolder">Featured title</h2>
-        <p>
-          Paragraph of text beneath the heading to explain the heading. We'll
-          add onto it with another sentence and probably just keep going until
-          we run out of words.
-        </p>
-        <a class="text-decoration-none" href="#!">
-          Call to action
-          <i class="bi bi-arrow-right"></i>
-        </a>
-      </div> -->
     </div>
   </div>
 </section>
@@ -90,8 +76,9 @@
       <div class="col-lg-6">
         <!-- 'chili testimonial'-->
         <div class="card mb-4">
-          <div class="card-body p-4">
+          <div class="card-body p-4"> 
             <div class="d-flex">
+            <img class="rounded-circle w-25 img-fluid z-depth-2" src="../../../media/images/Chili_Pictures.jpg" alt="A picture of my cat" data-holder-rendered="true"/>
               <div class="flex-shrink-0">
                 <i class="bi bi-chat-right-quote-fill text-primary fs-1"></i>
               </div>
@@ -104,6 +91,7 @@
             </div>
           </div>
         </div>
+        <!-- 'girlfriend testimonial'-->
         <div class="card">
           <div class="card-body p-4">
             <div class="d-flex">
