@@ -1,5 +1,6 @@
 import urllib3
 import pdb
+import os
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from urllib3 import HTTPResponse
@@ -7,12 +8,13 @@ from images_repo.models import Image
 from .forms import ImageForm
 from django.db.models import Q
 from django.http import HttpResponse
-import os
+from django.contrib.auth.decorators import login_required
 
 
 def home(request):
     return render(request, 'images_repo/home.html', {})
 
+@login_required(login_url='/members/login_user')
 def add_image(request):
     if request.method == 'POST':
         form = ImageForm(request.POST, request.FILES)
