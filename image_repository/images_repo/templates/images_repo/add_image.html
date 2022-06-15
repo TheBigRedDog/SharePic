@@ -3,13 +3,42 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'images_repo/css/add_image.css' %}" />
 {% block content %}
-
-<h1>Upload an image</h1>
-    <form method='post' enctype='multipart/form-data'>
+<main>
+    <div class="text-align-center">
+        <h1>Upload an image</h1>
+    </div>
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        
-        {{ form.as_p }}
-        <button type='submit'>Upload</button>
+        <legend>{{ title }}</legend>
+        <!-- title input -->
+        <div class="form-group p-3 pb-1 pt-1">
+            <label for="id_title">{{ form.title.label }}</label>
+            <input id="id_title" type="text" name="title" class="form-control" aria-describedby="titleHelp" placeholder="Enter title" maxlength="100" required />
+        </div>
+        <!-- description input -->
+        <div class="form-group p-3 pb-1 pt-1">
+            <label for="id_description">{{ form.description.label }}</label>
+            <input type="text" class="form-control" id="id_description" aria-describedby="descriptionHelp" placeholder="Enter description" />
+            <small id="descriptionHelp" name="description" class="form-text text-muted">Give your post a description.</small>
+        </div>
+        <!-- public input -->
+        <div class="form-group p-3 pb-1 pt-1">
+            <label for="inputImagePublic">Privacy</label>
+            <select name="id_public" class="form-control" id="inputImagePublic">
+                <option id="id_public" value="True">Public</option>
+                <option id="id_public" value="False">Private</option>
+            </select>
+            <small id="publicHelp" class="form-text text-muted">Choose your photos privacy setting.</small>
+        </div>
+         <!-- description input -->
+         <div class="form-group p-3 pb-1 pt-1">
+            <label for="id_image">{{ form.image.label }}</label>
+            <input type="file" name="image" class="form-control-file" id="id_image" aria-describedby="fileHelp" placeholder="Enter description" required />
+         </div>
+
+        <div class="form-actions p-3 pt-1 pb-1">
+            <button type="submit" class="btn btn-primary" >Submit</button>
+        </div>
     </form>
 
     {% if image_object %}
@@ -19,5 +48,6 @@
     {% endif %}
 
 
-
+</main>
 {% endblock %}
+<!-- image title, image_description, public, image -->

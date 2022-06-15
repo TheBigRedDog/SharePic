@@ -23,9 +23,11 @@ def add_image(request):
             image_object = form.instance
             image_object.owner = request.user
             image_object.save()
-            
             return render(request, 'images_repo/add_image.html', 
                             {'form': form, 'image_object': image_object})
+
+        else:
+            messages.error(request, ('There was an error with your form'))
     else:
         form = ImageForm()
     return render(request, 'images_repo/add_image.html', {'form' : form})
