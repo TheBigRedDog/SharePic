@@ -2,23 +2,31 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'images_repo/css/gallery.css' %}" />
 {% block content %} 
-<Center><h1>Image Gallery</h1></Center>
+
+<main class="p-3 bg-black">
+  <div class="container">
+    <div id="galllery_header" class="row justify-content-center"> 
+      <h1 class="text-center text-white">Gallery</h1>
+    </div>
+  </div>
 
     {% if image_list %}
     
 
     <div class="row row-cols1 row-cols-md-3 g-4">
     {% for image in image_list %}
-      <div class="col">
-        <div class="card">
-          <img src="{{ image.image.url }}" class="card-img-top" alt="..."/>
+      <div class="col mb-3 d-flex align-items-stretch justify-content-center">
+        <div class="card" style="background: #222; border: 2px solid #3a0c3a; color: rgba(250, 250, 250, 0.8); margin-bottom: 1rem;">
+          <img src="{{ image.image.url }}" class="card-img-top w-100 h-50" alt="..."/>
           <div class="card-body">
-            <h5 class="card-title text-center">{{ image.title }}</h5>
+            <h5 class="card-title text-left pb-1">{{ image.title }}</h5>
+            <h6 class="card-subtitle mb-2 text-secondary">User: {{ image.owner }}</h6>
             {% if image.public == False %} 
-            <h6 class="card-subtitle mb-2 text-muted">Private</h6>
+            <h6 class="card-subtitle mb-2 text-secondary">Private</h6>
             {% endif %}
             <p class="card-text">{{ image.description }}</p>
-            <a href='{% url "delete-image" image.id %}' class="btn mr-2"><i class="fas fa-link"></i> Delete</a>
+            <a href='{% url "delete-image" image.id %}' class="btn mr-2 text-white"
+            style="border: 5px solid #7c375f"><i class="fas fa-link"></i> Delete</a>
           </div>
         </div>
       </div>
@@ -33,5 +41,5 @@
       <h3>Upload some images!</h3>
     </CENTER>
     {% endif %}
-
+</main>
 {% endblock %}
