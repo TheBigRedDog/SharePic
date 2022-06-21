@@ -54,13 +54,4 @@ def delete_image(request, image_id):
         messages.error(request, ('You must be logged in to delete images'))
         return redirect('gallery')
 
- 
-# TODO: IMPLEMENT ADDING MULTIPLE IMAGES AS ALBUM
-# def add_album(request):
-#     if request.method ==
-
-# TODO: IMPLEMENT DELETING ALBUMS
-
-
-# Create your views here.
 

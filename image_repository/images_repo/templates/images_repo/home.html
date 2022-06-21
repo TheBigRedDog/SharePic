@@ -15,11 +15,19 @@
             offer!
           </p>
           <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+            {% if request.user.is_authenticated %}
             <a
               class="btn btn-primary btn-lg px-4 me-sm-3"
-              href="{% url 'register_user' %}"
+              href="{% url 'add-image' %}"
               >Get Started</a
             >
+            {% else %}
+            <a
+              class="btn btn-primary btn-lg px-4 me-sm-3"
+              href="{% url 'register-user' %}"
+              >Get Started</a
+            >
+            {% endif %}
             <a class="btn btn-outline-light btn-lg px-4" href="#!"
               >Learn More</a
             >
@@ -101,7 +109,7 @@
               <div class="ms-4">
                 <p class="mb-1">
                   "Really cool project love, can go on a date tonight instead of
-                  talking about containers and kubernates?"
+                  talking about docker and containers?"
                 </p>
                 <div class="small text-muted">- My girlfriend</div>
               </div>
