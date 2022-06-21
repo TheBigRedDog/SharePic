@@ -10,3 +10,4 @@ pytz==2022.1
 sqlparse==0.4.2
 urllib3==1.26.9
 zope.interface==5.4.0
+clarifai-grpc==8.6.0
