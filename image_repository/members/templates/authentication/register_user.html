@@ -1,22 +1,19 @@
-{% extends 'images_repo/base.html' %}
+{% extends "images_repo/base.html" %}
 
 {% block content %}
 {% if form.errors %}
-<div class='alert alert-warning alert-dismissible fade show' role='alert'>
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
     There is an error with your form.
-    <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
 {% endif %}
-<div class='shadow p-mb-5 bg-body rounded' style='padding:14px'>
-        <h1>Register</h1>
-<br/>
-            <form action='{% url  "register-user" %}' method='POST'>
-                {% csrf_token %}
-                {{ form.as_p }}
-</br>
-</br>
-                <input type='submit' value='Submit' class='btn btn-secondary'>
-            </form>
+<div class="shadow p-mb-5 p-3 pb-1 pt-2 bg-body rounded">
+  <h1 class="pb-1 pt-1">Register</h1>
+    <form action="{% url  'register-user' %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit" class="btn btn-secondary">
+    </form>
 </div>
             
 
