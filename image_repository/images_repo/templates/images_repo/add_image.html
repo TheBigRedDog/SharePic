@@ -1,7 +1,5 @@
 {% extends 'images_repo/base.html' %}
 
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'images_repo/css/add_image.css' %}" />
 {% block content %}
 <main>
     <div class="p-3">
@@ -18,19 +16,15 @@
         <!-- description input -->
         <div class="form-group p-3 pb-1 pt-1">
             <label for="id_description">{{ form.description.label }}</label>
-            <input type="text" class="form-control" id="id_description" aria-describedby="descriptionHelp" placeholder="Enter description" maxlength="500" />
-            <small id="descriptionHelp" name="description" class="form-text text-muted">Give your post a description.</small>
+            <input type="text" class="form-control" id="id_description" aria-describedby="description_help" placeholder="Enter description" maxlength="500" />
+            <small id="description_help" name="description" class="form-text text-muted">Give your post a description.</small>
         </div>
         <!-- public input -->
-        <div class="form-group p-3 pb-1 pt-1">
-            <label for="inputImagePublic">Privacy</label>
-            <select name="id_public" class="form-control" id="inputImagePublic">
-                <option id="id_public" value="True">Public</option>
-                <option id="id_public" value="False">Private</option>
-            </select>
-            <small id="publicHelp" class="form-text text-muted">Choose your photos privacy setting.</small>
+        <div class="form-check p-3 pb-1 pt-1">
+            <label for="id_public">Public Photo?</label>
+            {{ form.public }}
         </div>
-         <!-- description input -->
+         <!-- image input -->
          <div class="form-group p-3 pb-1 pt-1">
             <label for="id_image">{{ form.image.label }}</label>
             <input type="file" name="image" onchange="document.getElementById('image_preview').src = window.URL.createObjectURL(this.files[0])" class="form-control-file" id="id_image" aria-describedby="fileHelp" required />

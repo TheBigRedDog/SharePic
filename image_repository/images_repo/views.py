@@ -18,11 +18,11 @@ def add_image(request):
         form = ImageForm(request.POST, request.FILES)
         if form.is_valid():
             
-            image_is_nsfw = check_image_nsfw(form=form)
-            if image_is_nsfw:
-                messages.error(request, ('All image uploads must be of appropriate content.'))
-                form = ImageForm()
-                return render(request, 'images_repo/add_image.html', {'form': form})
+            # image_is_nsfw = check_image_nsfw(form=form)
+            # if image_is_nsfw:
+            #     messages.error(request, ('All image uploads must be of appropriate content.'))
+            #     form = ImageForm()
+            #     return render(request, 'images_repo/add_image.html', {'form': form})
             
             form.save(commit=False)
             image_object = form.instance
