@@ -28,10 +28,6 @@
               >Get Started</a
             >
             {% endif %}
-            <a class="btn btn-outline-light btn-lg px-4" href="#!"
-              >Learn More</a
-            >
-          </div>
         </div>
       </div>
     </div>
@@ -49,10 +45,17 @@
           Upload as many images as you would like to and choose who you want
           seeing them. Edit and delete photos at your leisure.
         </p>
-        <a class="text-decoration-none" href="#!">
+        {% if request.user.is_authenticated %}
+        <a class="text-decoration-none" href="{% url 'add-image' %}">
           Start sharing!
           <i class="bi bi-arrow-right"></i>
         </a>
+        {% else %}
+        <a class="text-decoration-none" href="{% url 'register-user' %}">
+          Start sharing!
+          <i class="bi bi-arrow-right"></i>
+        </a>
+        {% endif %}
       </div>
       <div class="col-lg-6 mb-5 mb-lg-0">
         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">

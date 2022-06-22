@@ -10,7 +10,7 @@
 <div class='shadow p-mb-5 bg-body rounded' style='padding:14px'>
         <h1>Register</h1>
 <br/>
-            <form action='{% url  "register_user" %}' method='POST'>
+            <form action='{% url  "register-user" %}' method='POST'>
                 {% csrf_token %}
                 {{ form.as_p }}
 </br>
