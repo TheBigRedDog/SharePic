@@ -17,8 +17,13 @@ def add_image(request):
     if request.method == 'POST':
         form = ImageForm(request.POST, request.FILES)
         if form.is_valid():
-            image_bytes = form['image'].value().read()
-            clarifai_response = check_image_nsfw(image_bytes=image_bytes)
+            
+            image_is_nsfw = check_image_nsfw(form=form)
+            if image_is_nsfw:
+                messages.error(request, ('All image uploads must be of appropriate content.'))
+                form = ImageForm()
+                return render(request, 'images_repo/add_image.html', {'form': form})
+            
             form.save(commit=False)
             image_object = form.instance
            

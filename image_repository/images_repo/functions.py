@@ -6,7 +6,8 @@ from clarifai_grpc.grpc.api.status import status_code_pb2
 
 
 
-def check_image_nsfw(image_bytes):
+def check_image_nsfw(form):
+    image_bytes = form['image'].value().read()
     is_nsfw = False
     stub = service_pb2_grpc.V2Stub(ClarifaiChannel.get_grpc_channel())
     metadata =(("authorization", f"Key {CLARIFAI_API_KEY}"),)
@@ -17,7 +18,10 @@ def check_image_nsfw(image_bytes):
         resources_pb2.Input(
             data=resources_pb2.Data(image=resources_pb2.Image(base64=image_bytes)))],)
     clarifai_response = stub.PostModelOutputs(clarifai_request, metadata=metadata)
-
-    
-
-    return clarifai_response
+    concepts = clarifai_response.outputs[0].data.concepts
+    for concept in concepts:
+        if concept.name == 'nsfw':
+            if concept.value > 0.7:
+                is_nsfw = True
+   
+    return is_nsfw
