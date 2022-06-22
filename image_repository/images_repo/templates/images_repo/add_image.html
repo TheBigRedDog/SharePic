@@ -27,9 +27,9 @@
          <!-- image input -->
          <div class="form-group p-3 pb-1 pt-1">
             <label for="id_image">{{ form.image.label }}</label>
-            <input type="file" name="image" onchange="document.getElementById('image_preview').src = window.URL.createObjectURL(this.files[0])" class="form-control-file" id="id_image" aria-describedby="fileHelp" required />
+            <input type="file" name="image" onchange="document.getElementById('image_preview').src = window.URL.createObjectURL(this.files[0]); document.getElementById('image_preview').style='' " class="form-control-file" id="id_image" aria-describedby="fileHelp" required />
          </div>
-         <img id="image_preview" alt=" " width="100" height="100" />
+         <img id="image_preview" alt=" " style="display:none" width="500" />
          
 
         <div class="form-actions p-3 pt-1 pb-1">
