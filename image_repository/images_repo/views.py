@@ -6,24 +6,22 @@ from .forms import ImageForm
 from django.db.models import Q
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-from API_keys import CLARIFAI_API_KEY, APPLICATION_ID
-from clarifai_grpc.channel.clarifai_channel import ClarifaiChannel
-from clarifai_grpc.grpc.api import service_pb2_grpc
-from clarifai_grpc.grpc.api import service_pb2, resources_pb2
-from clarifai_grpc.grpc.api.status import status_code_pb2
-
+from .functions import *
 def home(request):
     return render(request, 'images_repo/home.html', {})
 
 @login_required(login_url='/members/login_user')
 def add_image(request):
-    stub = service_pb2_grpc.V2Stub(ClarifaiChannel.get_grpc_channel())
+    
 
     if request.method == 'POST':
         form = ImageForm(request.POST, request.FILES)
         if form.is_valid():
+            image_bytes = form['image'].value().read()
+            clarifai_response = check_image_nsfw(image_bytes=image_bytes)
             form.save(commit=False)
             image_object = form.instance
+           
             image_object.owner = request.user
             image_object.save()
             return render(request, 'images_repo/add_image.html', 
@@ -56,5 +54,3 @@ def delete_image(request, image_id):
     else:
         messages.error(request, ('You must be logged in to delete images'))
         return redirect('gallery')
-
-
