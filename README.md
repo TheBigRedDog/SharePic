@@ -1,20 +1,66 @@
-# SharePic
-To run this project you will need to have Docker and Docker Compose installed globally.
-https://docs.docker.com/engine/install/
-https://docs.docker.com/compose/install/
+<h1  align="center"> SharePic </h1>
 
-This project is an image repository in the form of an image sharing website build with Django, Bootstrap, and Postgresql. 
-Users are able to register to create an account, upload photos, and view them in the gallery. Only registered users are able to upload photos and a user must be logged in to be able to upload them.
-Additionally, there are privacy settings when photos are uploaded that determine whether they are public (viewable by all users, even those who are not logged in) or private (viewable only by the user who uploaded the photo).
-Photos can be deleted from the gallery. However, users are only able to delete photos that they uploaded.
+<h4  align="center">An image sharing platform built using <a href="https://www.djangoproject.com" target="_blank">Django</a> & <a  href="https://getbootstrap.com/"  target="_blank">Bootstrap</a>.</h4>
 
-Instructions:
-1. Install Docker Enginer and Docker Compose (if they are not already installed)
-2. Cd into the root directory of the project
-3. run "docker compose build"
-4. run "docker compose up"
-5. open your browser and go to 127.0.0.1:8000/images_repo
+<p  align="center">
+<a  href="#key-features">Key Features</a> • <a  href="#how-to-use">How To Use</a> • <a  href="#credits">Credits</a> • <a  href="#license">License</a>
+</p>
 
-NOTE 
-This project will NOT build if you use docker-compose instead of docker compose. See below for more information.
-https://docs.docker.com/compose/#compose-v2-and-the-new-docker-compose-command
+![screenshot](https://raw.githubusercontent.com/TheBigRedDog/SharePic/main/media/SharePic_Homepage.png)
+
+## Key Features
+
+- Upload photos and share them for everyone to see (or keep them private, the choice is yours).
+
+- Post Preview - Check what your post will look like before uploading to the gallery.
+
+- Gallery - Scroll through public and your private posts to see what everyone has been up to!
+
+- User Permissions - Only you can delete or edit the photos you have uploaded.
+
+- Child Friendly - Image uploads are scanned for NSFW content using <a  href="https://getbootstrap.com/"  target="_blank">Clarifai's</a> AI image classification models to ensure public images are nudity-free.
+
+## How To Use
+
+To run this application, you'll need [Git](https://git-scm.com), [Docker](https://www.docker.com/), and [Docker Compose](https://docs.docker.com/compose/install/) installed on your computer.
+<b>
+
+From your command line:
+
+```bash
+
+# Clone this repository
+$ git clone https://github.com/TheBigRedDog/SharePic
+
+
+# Go into the repository
+$ cd electron-markdownify
+
+
+# Build docker images
+$ sudo docker compose build
+
+
+# Run the app
+$ sudo docker compose up
+
+
+# Open the app
+$ xdg-open 127.0.0.1:8000/images_repo
+```
+
+## Credits
+
+This software uses the following open source packages:
+
+- [Django](https://www.djangoproject.com/)
+
+- [Bootstrap](https://getbootstrap.com/)
+
+- [Docker](https://www.docker.com/)
+
+- [PostgreSQL](https://www.postgresql.org/)
+
+## License
+
+MIT
