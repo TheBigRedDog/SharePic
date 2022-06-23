@@ -46,7 +46,7 @@ def all_images(request):
 
     return render(request, 'images_repo/gallery.html', {'image_list': image_list})
 
-# TODO: IMPLEMENT DELETING image from file location w/django-cleanup
+@login_required(login_url='/members/login_user')
 def delete_image(request, image_id):
     if request.user.is_authenticated:
         image = Image.objects.get(pk=image_id)
