@@ -1,5 +1,5 @@
 # media folder
-image_repository/media/*
+image_repository/media/images/*
 
 # API keys
 image_repository/images_repo/API_keys.py
